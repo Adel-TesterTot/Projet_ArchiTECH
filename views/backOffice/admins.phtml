@@ -1,0 +1,42 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="adminContainer">
+    <?php require_once('_titleAvatar.phtml'); ?>
+    
+    <h2>Gestion des Administrateurs :</h2>
+    <a class="add1" href="../../src/backOffice/adminNewAndUpdate.php"><i class="fas fa-plus-circle"></i> Ajouter un Administrateur</a>
+ 
+    <table class="adminTable">
+        <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($rowAdmins as $rowAdmin): ?>
+                <tr>
+                    <td><img src="../../assets/images/avatar_admins/<?= $rowAdmin['avatar_admin'] ?>" class="admin_avatar" alt="avatar administrateur"></td>
+                    <td><?= htmlspecialchars($rowAdmin['arc_lastname']) ?></td>
+                    <td><?= htmlspecialchars($rowAdmin['arc_firstname']) ?></td>
+                    <td><?= htmlspecialchars($rowAdmin['arc_mail']) ?></td>
+                    <td class="center">
+                        <?php if($_SESSION['arc']['id'] == $rowAdmin['arc_id']): ?>
+                            <a href="../../src/backOffice/adminNewAndUpdate.php?id=<?= htmlspecialchars($rowAdmin['arc_id']) ?>"><i class="fas fa-wrench"></i></a>
+                        <?php else: ?>
+                            <span>à modifier par votre collègue</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="center"><a href="../../src/backOffice/adminDelete.php?id=<?= htmlspecialchars($rowAdmin['arc_id']) ?>" ... onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet Administrateur ?');" ><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

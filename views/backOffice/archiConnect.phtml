@@ -1,0 +1,33 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="login">
+    
+    <?php if(isset($_SESSION['message'])) : ?>
+        <div class="MessageSessionV">
+            <img src="../../assets/images/img_valids.errors/validation.png" alt="Validation" class="imgErrorAndValid"/>
+            <ul>
+                <li><?= $_SESSION['message'] ?></li>
+            </ul>
+        </div>
+        <?php unset($_SESSION['message']) ?>
+    <?php endif; ?>
+    
+    <?php require_once('_errorsBack.phtml'); ?>
+    <?php require_once('_validsBack.phtml'); ?>
+    
+    <form action="../../src/backOffice/archiConnect.php" method="POST">
+        <?php require_once('_titleAvatar.phtml'); ?>
+        <legend><i class="fa fa-fw fa-user"></i> Connexion</legend>  
+        <label for="arc_mail">EMAIL</label></br>
+            <input type="email" name="arc_mail" value="jury@3wa.io"></br>
+        <label for="arc_password">PASSWORD</label></br>
+        <div>
+            <input type="password" id="password" name="arc_password" value="123654As$"><i id="eye" class="fas fa-eye-slash"></i></br>
+        </div>
+        <a href="../../src/backOffice/forgotMdp.php" class="forgot">Mot de passe oublié !</a><br>
+        <input type="submit" value="Connexion">
+    </form>
+    
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

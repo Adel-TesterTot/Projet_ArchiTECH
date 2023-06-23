@@ -1,0 +1,34 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <h1>Bonjour, Modifier votre actualité !</h1>
+        <h3>Modification actualité :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form method="POST" action="../../src/backOffice/actualiteNewAndUpdate.php?id=<?php echo htmlspecialchars($_GET['id']); ?>">
+
+    <?php else: ?>
+        <h1>Bonjour, Ajoutez nouvelle Actualité !</h1>
+        <h3>Ajout d'une actualité :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form action="../../src/backOffice/actualiteNewAndUpdate.php" method="POST">
+            
+    <?php endif; ?>
+        <label for="act_title">Nom de l'actualité :</label>
+        <input type="text" name="act_title" value="<?= htmlspecialchars($addActualitie['addTitle'])?>">
+
+        <label for="act_description">Description :</label>
+        <textarea id="story" name="act_description" rows="5" cols="33"><?= htmlspecialchars($addActualitie['addDescription']) ?></textarea>
+        
+        <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+            <input type="submit" value="Modifier">
+        <?php else: ?>
+            <input type="submit" value="Ajouter">
+            
+        <?php endif; ?>
+    </form>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

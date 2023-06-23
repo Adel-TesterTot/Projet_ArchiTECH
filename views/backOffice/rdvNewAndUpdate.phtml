@@ -1,0 +1,42 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <h1>Gestions des Rendez-vous</h1>   
+        <h3>Bonjour, Modifier votre rendez-vous :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form method="POST" action="../../src/backOffice/rdvNewAndUpdate.php?id=<?php echo htmlspecialchars($_GET['id']); ?>">
+            
+    <?php else: ?>
+        <h1>Gestions des Rendez-vous</h1>
+        <h3 class="">Ajout d'un Rendez-vous !</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form action="../../src/backOffice/rdvNewAndUpdate.php" method="POST">
+    <?php endif; ?>
+
+        <label for="app_name">Nom :</label>
+            <input type="text" name="app_name" value="<?= htmlspecialchars($addRdv['addName']) ?>">
+            
+        <label for="app_lastname">Prénom :</label>
+            <input type="text" name="app_lastname" value="<?= htmlspecialchars($addRdv['addLastname']) ?>">
+    
+        <label for="app_mail">Email :</label>
+            <input type="text" name="app_mail" value="<?= htmlspecialchars($addRdv['addMail']) ?>">
+    
+        <label for="app_date">Date : </label>
+            <input type="datetime-local" name="app_date" value="<?= htmlspecialchars($addRdv['addDate']) ?>">
+    
+        <label for="app_message">Message :</label>
+            <textarea id="story" name="app_message" rows="10" cols="33"><?= htmlspecialchars($addRdv['addMessage']) ?></textarea>
+    
+        <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+            <input type="submit" value="Modifier">
+        <?php else: ?>
+            <input type="submit" value="Ajouter">
+        <?php endif; ?>    
+    </form>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

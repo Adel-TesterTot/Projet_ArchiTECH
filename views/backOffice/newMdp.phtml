@@ -1,0 +1,32 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="adminNewMdp">
+    
+    <?php if(isset($_SESSION['message'])) : ?>
+        <div class="MessageSessionV">
+            <img src="../../assets/images/img_valids.errors/validation.png" alt="Validation" class="imgErrorAndValid"/>
+            <ul>
+                <li><?= $_SESSION['message'] ?></li>
+            </ul>
+        </div>
+        <?php unset($_SESSION['message']) ?>
+    <?php endif; ?>
+    
+    <?php require_once('_validsBack.phtml'); ?>
+    <?php require_once('_errorsBack.phtml'); ?>
+    
+    <form action="../../src/backOffice/newMdp.php" method="POST">
+        <legend>Créer un nouveau mot de passe</legend>  
+            <label for="recup_mail">EMAIL :</label>
+                <input type="email" name="recup_mail">
+            <label for="recup_code">Code de confirmation :</label>
+                <input type="text" name="recup_code">
+            <label for="arc_password">Nouveau mot de passe :</label>
+                <input type="password" name="arc_password" id="password1"><i id="eye1" class="fas fa-eye-slash"></i>
+            <label for="arc_password_confirm">confirmer le mot de passe :</label>
+        <input type="password" name="arc_password_confirm" id="password2"><i id="eye2" class="fas fa-eye-slash"></i>
+        <input type="submit" value="Envoyer">
+    </form>
+    
+</main>
+<?php require_once('_footerBack.phtml'); ?>

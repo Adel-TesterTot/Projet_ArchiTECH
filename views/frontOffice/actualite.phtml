@@ -1,0 +1,25 @@
+<?php require_once('_header.phtml'); ?>
+
+<main class="containerActualite">
+
+        <article class="droite">
+            <p><?= htmlspecialchars($actualitie1['act_title']) ?></p>
+            <p><?= htmlspecialchars($actualitie1['act_description']) ?></p>
+        </article>
+        <article class="gauche">
+            <p><?= htmlspecialchars($actualitie2['act_title']) ?></p>
+            <p><?= htmlspecialchars($actualitie2['act_description']) ?></p>
+        </article>
+        <article class="droite">
+            <p><?= htmlspecialchars($actualitie3['act_title']) ?></p>
+            <p><?= htmlspecialchars($actualitie3['act_description']) ?></p>
+        </article>
+        <article class="gauche">
+            <p><?= htmlspecialchars($actualitie4['act_title']) ?></p>
+            <p><?= htmlspecialchars($actualitie4['act_description']) ?></p>
+        </article>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="../../assets/images/img_picto/arrowTop.jpg"></button>
+</main>
+
+<?php require_once('_footer.phtml'); ?>

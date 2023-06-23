@@ -1,0 +1,33 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="adminContainer">
+        
+    <?php require_once('_titleAvatar.phtml'); ?>
+    <h2>Gestion des Actualités :</h2>
+    <a class="add1" href="../../src/backOffice/actualiteNewAndUpdate.php"><i class="fas fa-plus-circle"></i>Ajouter une Actualité</a>
+
+    <table class="actualiteTable">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($rowActualities as $rowActualitie): ?>
+                <tr>
+                    <td><?= htmlspecialchars($rowActualitie['act_title']) ?></td>
+                    <td><?= substr(nl2br(htmlspecialchars($rowActualitie['act_description'])), 0, 60) ?>...</td>
+                    <td class="center"><a href="../../src/backOffice/actualiteNewAndUpdate.php?id=<?= htmlspecialchars($rowActualitie['act_id']) ?>"><i class="fas fa-wrench"></i></a>
+                    </td>
+                    <td class="center"><a href="../../src/backOffice/actualiteDelete.php?id=<?= htmlspecialchars($rowActualitie['act_id']) ?>" ... onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');" ><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

@@ -1,0 +1,33 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="adminContainer">
+        
+    <?php require_once('_titleAvatar.phtml'); ?>
+    <h2>Gestion des Photos :</h2>
+    <a class="add1" href="../../src/backOffice/photoNew.php"><i class="fas fa-plus-circle"></i>Ajouter une photo</a>
+
+    <table class="photoTable">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>ID Projet</th>
+                <th>Projet associé</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($photosProjets as $photosProjet): ?>
+                <tr>
+                    <td><?= htmlspecialchars($photosProjet['photo_name']) ?></td>
+                    <td><?= htmlspecialchars($photosProjet['pro_id']) ?></td>
+                    <td><?= htmlspecialchars($photosProjet['pro_title']) ?></td>
+                    <td class="center"><a href="../../src/backOffice/photoDelete.php?id=<?= htmlspecialchars($photosProjet['photo_id']) ?>" ... onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette Photo ?');" ><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

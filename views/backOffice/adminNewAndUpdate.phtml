@@ -1,0 +1,52 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    
+    <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <h1>Bonjour, Modifier votre Administrateur !</h1>
+        <h3>Modification Administrateur :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form enctype="multipart/form-data" method="POST" action="../../src/backOffice/adminNewAndUpdate.php?id=<?= htmlspecialchars($_GET['id']); ?>">
+            
+    <?php else: ?>
+        <h1>Bonjour Ajoutez nouveau Administrateur !</h1>
+        <h3>Ajout d'un Administrateur :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form enctype="multipart/form-data" action="../../src/backOffice/adminNewAndUpdate.php" method="POST">
+            
+    <?php endif; ?>
+        <label for="arc_lastname">Nom :</label>
+            <input type="text" name="arc_lastname" value="<?= htmlspecialchars($addAdmin['addNom']) ?>">
+            
+        <label for="arc_firstname">Prénom :</label>
+            <input type="text" name="arc_firstname" value="<?= htmlspecialchars($addAdmin['addPrenom']) ?>">
+    
+        <label for="arc_mail">Email :</label>
+            <input type="text" name="arc_mail" value="<?= htmlspecialchars($addAdmin['addEmail']) ?>">
+        <?php if(!array_key_exists('id', $_GET)) : ?>
+            <label for="arc_password">Mot de passe :</label>
+                <input type="password" name="arc_password" id="password1" value="<?= htmlspecialchars($addAdmin['addPassword']) ?>"><i id="eye1" class="fas fa-eye-slash"></i>
+        
+            <label for="arc_password_confirm">confirmer mot de passe :</label>
+                <input type="password" name="arc_password_confirm" id="password2" value="<?= htmlspecialchars($addAdmin['addPassword_confirme']) ?>"><i id="eye2" class="fas fa-eye-slash"></i>
+        <?php else: ?> 
+        <?php endif; ?>
+        <fieldset>
+            <label for="avatar_admin">Avatar administrateur : </label>
+                <input type="file" name="avatar_admin">
+        </fieldset>
+    
+        <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <img src="../../assets/images/avatar_admins/<?= htmlspecialchars($addAdmin['addAvatar'])?>" class="img_exist" alt="image exist">
+            <input type="submit" value="Modifier">
+        <?php else: ?>
+            <input type="submit" value="Ajouter">
+        <?php endif; ?>
+            
+    </form>
+</main>
+<?php require_once('_footerBack.phtml'); ?>
+
+        

@@ -1,0 +1,47 @@
+<?php require_once('_header.phtml'); ?>
+   
+<main class="containerContact">
+    <?php require_once('_valids.phtml'); ?>
+    <?php require_once('_errors.phtml'); ?>
+    
+    <?php if(isset($_SESSION['message'])) : ?>
+        <?= $_SESSION['message'] ?>
+        <?php unset($_SESSION['message']) ?>
+    <?php endif; ?>
+    
+    <h1><?= CONTACT ?></h1>
+
+    <p>Forts de plusieurs années d’expérience dans la construction, la rénovation, l’architecture d’intérieur, le design, le conseil et la visualisation, nous intervenons aussi bien pour des particuliers que des professionnels. Prenez Rendez-vous pour nous présenter votre projet, et nous vous proposerons une offre sur mesure, adaptée à vos besoins et à votre budget
+    </p>
+        
+    <form action ="../../src/frontOffice/contact.php" method="post">
+        <label for="rdv_name">Nom :</label>
+            <input type="text" id="rdv_name" name="rdv_name" placeholder="Nom" value="<?= htmlspecialchars($addcontact['addNom'])?>">
+        
+        <label for="rdv_lastName">Prénom :</label>
+            <input type="text" id="rdv_lastName" name="rdv_lastName" placeholder="Prénom" value="<?= htmlspecialchars($addcontact['addPrenom'])?>">
+        
+        <label for="rdv_mail">Email :</label>
+            <input type="text" id="rdv_mail" name="rdv_mail" placeholder="E-mail" value="<?= htmlspecialchars($addcontact['addEmail']) ?>">
+        
+        <label for="rdv_date">Date :</label>
+            <?= "<input type='datetime-local' id='rdv_date' name='rdv_date' value =".$dt." min=".$dt_min." max=".$dt_max.">"; ?>
+        
+        <label for="message">Message :</label>
+            <textarea id="story" id="message" name="rdv_message" placeholder="Ecrivez votre message..." rows="10" cols="33"><?= htmlspecialchars($addcontact['addMessage']) ?></textarea>
+  
+        <button type="submit" class ="submit">ENVOYER</button>
+    </form>
+    <h3>26, Rue Rigoles, PARIS</h3>
+        
+    <p class="tel">09 88 88 17 42</p>
+
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=2.391977906227112%2C48.87141221220513%2C2.3944884538650517%2C48.87264362685329&amp;layer=mapnik">
+    </iframe><br/><small class="maps"><a href="https://www.openstreetmap.org/#map=19/48.87203/2.39323&amp;layers=N">Afficher une carte plus grande</a></small>
+    
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="../../assets/images/img_picto/arrowTop.jpg"></button>
+</main>
+
+<?php require_once('_footer.phtml'); ?>
+        
+        

@@ -1,0 +1,52 @@
+Bonjour, je suis RAHIM Adel développeur web junior, je vous présente mon projet de validation de ma formation développeur web junior , au sein de votre école , c'est un site vitrine d'un bureau d'études d'architecture avec un BACK OFFICE dont j'ai utilisé plusieurs langages de programmation que nous avons appris au sein de la 3W Academy.
+
+J'ai utilisé les langages suivants : Html, css, bootstrap, javascript, Ajax, JQuery, mixitup(plugin de Js), SQL, php , mySQL , phpMyAdmin.
+
+/***************************************
+BACK OFFICE 
+***************************************/
+
+Identifiant pour se connecter au Back Office
+    - Email : jury@3wa.io
+    - Password : 123654As$
+
+J'ai une page de connexion qui permet aux ADMINISTRATEURS de se connecter via un formulaire de connexion avec une rubrique mot de passe oublié en cas de perte le mot de passe, ce lien nous permet de remplir des informations de sécurité comme Email, code reçu (vu que l'IDE de la 3w academy n'envoie pas de mail contenant le code de confirmation) je me suis permet de l'afficher dans la page de création de nouveau mot de passe .
+
+Une fois connecté sur la plateforme des administrateurs, l'ADMIN va pouvoir gérer toutes les les taches comme : la modification, l'ajout et la suppression ...
+
+Des tableaux pour afficher : les projets réalisés par notre bureau avec des informations comme titre, description, la date de réalisation exct , avec la possibilité de modifier , ajouter ou supprimer le projet choisi grace a son ID , avec l'image principale du projet et quelques photos démonstratives ...
+
+Le tableau des administrateurs affiche tous les ADMINS avec l'avatar , le nom , prénom et la possiblité de modifier son compte mais il ne peut pas modifier les informations de ses collègues par mesure de sécurité , sauf ils pouront supprimer son compte en cas ou l'ADMIN quitte l'entreprise (il ne travaille plus).
+
+Et pareil pour le reste des tableaux, pouvoir gérer les tables :  rendez-vous des clients , les CV de candidature , les postes  à offrir , les catégories des projets , des actualités et des photos démonstratives des projets .
+
+Un seul fichier pour ajouter ou modifier les données , si l'ADMIN clique sur modifier , une page de modification avec un formulaire prérempli des données qui existent dans la BDD , sinon le cas d'ajout , une page pour ajouter des données dont un formulaire vide à remplir obligatoirement .
+
+Des messages de confirmation en cas de suppression des données
+
+Pouvoir aussi modifier les rendez -vous pris par des clients car y'a des cas ou le client veut changer son rendez-vous.
+
+/***************************************
+FRONT OFFICE 
+***************************************/
+
+Une page d'accueil (HOME) qui affiche et présente l'agence , un slider qui afficher 3 images de 3 projets différents de manière aléatoire pour chaque actualisation de la page il affiche des nouveaux projets stoqués dans la BDD, ce slider donne l'opportunité de voir plusieurs projets, et au click sur l'image, une redirection dans une autre page qui affiche les détails du projet (titre, description, catégorie du projet, la date de construction et le owner) avec quelques photos qui développent les travaux réalisés , si nous cliquons sur le button fermer, redirection vers la page de tous les projets faits par notre équipe avec une navigation qui affiche les projets selon leur catégorie .. une barre de recherche qui permet aux utilisateurs de trouver le projet idéal et d'affiner leur recherche au lieux de naviguer toute la page, (une requête AJAX qui permet d'afficher le projet a partir de la première lettre saisie).
+    Elle affiche aussi 4 projet de chaque catégorie ( y a 4 catégorie ) et le dernier projet réalisé et stoqué dans la BDD
+
+A l'entête de la page se trouve notre button qui affiche une NAV qui comprend les liens des pages suivantes :
+
+Bureau : Cette page est statique, une présentation de notre équipe d'architect avec la manière de réaliser l'activité et la politique de l'engagement.
+
+Actualité : une page qui affiche les tendances, soit du domaine soit des remerciements et des souhaits des fêtes.
+
+Contact : une page qui permet aux internautes de prendre un rendez-vous via un formulaire de contact dont la date plus proche est 5 jours et limité a 2mois et 10 jours
+
+Et la derniere page :  recrutement (postuler.php/postuler.phtml) qui affiche les postes stoqués dans la BDD , la catégorie du poste et un choix de candidature soit envoyer le curriculum vitae par mail soit via un short formulaire qui permet de télécharger un fichier PDF ou ODT
+
+Et pour finir, 3 liens des réseaux sociaux (facebook, linkedin, et instagram) donnent la possiblité de connaitre plus le bureau et son réseaux de travail.
+
+REMARQUE : pour charger la librairie js (flatpickr) et le plugin maxitup ne fonctionnent pas si je met les scripts dans le footer, donc je met les scripts avant la fermeture de body dans le PHTML.
+
+    dans la page infoProjet(détails du projet), il faut ajouter 3 photos pour chaque projet de la table `photos` a part l'image principale pour l'affichage du slider (en bootstrap) .
+    
+Bonne lecture.

@@ -1,0 +1,28 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    
+    <?php require_once('_validsBack.phtml'); ?>
+
+    <h1>Bonjour, Ajoutez plusieurs photos projet démonstratives !</h1>
+    <h3>Ajout d'une photo :</h3>
+    <?php require_once('_errorsBack.phtml'); ?>
+    
+    <form enctype="multipart/form-data" action="../../src/backOffice/photoNew.php?id=<?= htmlspecialchars($_GET['id']); ?>" method="POST">
+        <fieldset>
+            <label for="photo_name">Photo Secondaire projet : </label>
+                <input type="file" accept="images/*" name="photo_name">
+        </fieldset>
+        <input type="submit" value="Ajouter">
+    </form> 
+
+</main>
+<?php require_once('_footerBack.phtml'); ?>
+    
+                    
+                    
+    
+    
+    
+
+	

@@ -1,0 +1,63 @@
+<?php require_once('_header.phtml'); ?>
+  
+<main class="containerProjets">
+    
+    <h1>Détails Projets</h1>
+    
+    <section class="sidebar">
+        <form action="#" method="post">
+            <label for="nomProjet">Trouver un projet similaire à vos besoins :</label>
+            <input type="text" name="nomProjet" id="nomProjet" placeholder="Recherche">
+        </form>
+        <div id="divAjax" >
+            <!-- affichage du résultat de la recherche projet (AJAX) -->
+        </div>
+        
+        <ul>
+            <li><a  class="current" data-filter="all">Tous</a></li>
+            <li><a  data-filter=".archiInterieure">Architecture d'intérieure</a></li>
+            <li><a  data-filter=".architecture">Architecture</a></li>
+            <li><a  data-filter=".conception">Conception 3D</a></li>
+            <li><a  data-filter=".graphisme">Graphisme</a></li>
+        </ul>
+    </section>
+    
+    <section class="galerie mixitup">
+        <?php foreach($catProjets as $catProjet): ?>
+            <?php $i = $catProjet['pro_category']; ?>   
+            
+            <?php if($i == 1): ?>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($catProjet['pro_id']) ?>" class="mix archiInterieure">   
+                    <img src="../../assets/images/image_principale/<?= $catProjet['img_name'] ?>" alt="image projet de catégorie Architecture d'intérieure">
+                </a> 
+            
+            <?php elseif($i == 2): ?>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($catProjet['pro_id']) ?>" class="mix architecture">
+                    <img src="../../assets/images/image_principale/<?= $catProjet['img_name'] ?>" alt="image projet de catégorie Architecture">
+                </a>
+                
+            <?php elseif($i == 3): ?>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($catProjet['pro_id']) ?>" class="mix conception">
+                    <img src="../../assets/images/image_principale/<?= $catProjet['img_name'] ?>" alt="image projet de catégorie Conception 3D">
+                </a>
+                    
+            <?php elseif($i == 4): ?>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($catProjet['pro_id']) ?>" class="mix graphisme">
+                    <img src="../../assets/images/image_principale/<?= $catProjet['img_name'] ?>" alt="image projet de catégorie Graphisme">
+                </a>
+            <?php endif; ?>    
+        <?php endforeach; ?>
+    </section>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="../../assets/images/img_picto/arrowTop.jpg" alt="image go to top"></button>
+</main>
+
+<!-- Charger le script du plugin -->
+<script src="../../assets/js/vendor/mixitup/mixitup.min.js"></script>
+	
+<!-- Indiquer sur quel élément de la page on applique le plugin -->
+<script>
+    let mixer = mixitup(".mixitup");
+</script>
+
+<?php require_once('_footer.phtml'); ?>
+    

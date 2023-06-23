@@ -1,0 +1,52 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    
+    <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <h1>Bonjour, Modifier votre catégorie !</h1>
+        <h3>Modification d'une catégorie :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form enctype="multipart/form-data" action="../../src/backOffice/categorieNewAndUpdate.php?id=<?php echo htmlspecialchars($_GET['id']); ?>" method="POST">
+
+    <?php else: ?>
+        <h1>Bonjour, Ajoutez votre nouvelle catégorie !</h1>
+        <h3>Ajout d'une catégorie :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form enctype="multipart/form-data" action="../../src/backOffice/categorieNewAndUpdate.php" method="POST">
+            
+    <?php endif; ?>
+
+        <label for="name">Nom catégorie :</label><br>
+            <input type="text" name="title" value="<?= htmlspecialchars($addCategorie['addTitle'])?>"><br>
+
+        <label for="description">Description :</label><br>
+            <textarea id="description" name="description" rows="5" cols="33"><?= htmlspecialchars($addCategorie['addDescription']) ?></textarea><br>
+        
+        <fieldset>
+            <label for="cat_img">Image Catégorie : </label>
+                <input type="file" name="cat_img"><br>
+        </fieldset>
+        
+        <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+            <img src="../../assets/images/img_categorie/<?= htmlspecialchars($addCategorie['addImage'])?>" class="img_exist" alt="image catégorie exist"><br>
+            <input type="submit" value="Modifier">
+            
+        <?php else: ?>
+            <input type="submit" value="Ajouter">
+            
+        <?php endif; ?>
+    </form>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>
+    
+    
+    
+    
+    
+    
+    
+
+	

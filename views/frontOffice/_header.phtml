@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="La meilleure conception architecturale">
+        
+        <!-- titre -->
+        <title><?= TITLE ?></title>
+
+        <!-- Ajax -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+        
+        <!-- Favicon ArchiTEC -->
+    	<link rel="icon" type="image/png" href="../../assets/images/logos/favicon.png">
+    	
+    	<!-- font awesome --> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
+        
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- flatpickr -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+        <!--feuilles de style -->
+        <link rel="stylesheet" href="../../assets/css/normalize.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/css/styleFront.css" type="text/css" />
+    </head>
+<body>
+    <header>
+        <?php if(basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "infoProjet.php"): ?>
+        <?php else: ?>
+        <div class="header">
+        	<a href="../../src/frontOffice/index.php" class="logoLink">
+        	    <img src="../../assets/images/logos/logo.png" class="logo" alt= "logo ArchiTEC">
+        	</a>
+            <span class="menuus" onclick="openNav()"><i class="fas fa-bars"></i> MENU</span>
+        </div> 
+        <?php endif; ?>
+
+        <?php if(basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "index.php"): ?>
+            <div id="ariane">
+                <p class="numero">01</p>
+                <p class="trait"></p>
+                <p class="titre">Accueil</p>
+            </div>
+        <?php endif; ?>
+
+        <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "bureau.php"): ?>
+            <div id="ariane">
+                <p class="numero">02</p>
+                <p class="trait"></p>
+                <p class="titre">Bureau</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "projets.php"): ?>
+            <div id="ariane">
+                <p class="numero">03</p>
+                <p class="trait"></p>
+                <p class="titre">Projets</p>
+            </div>
+        <?php endif; ?>
+
+        <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "actualite.php"): ?>
+            <div id="ariane">
+                <p class="numero">04</p>
+                <p class="trait"></p>
+                <p class="titre">Actualité</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "contact.php"): ?>
+            <div id="ariane">
+                <p class="numero">05</p>
+                <p class="trait"></p>
+                <p class="titre">Contact</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) == "postuler.php"): ?>
+            <div id="ariane">
+                <p class="numero">06</p>
+                <p class="trait"></p>
+                <p class="titre">Recrutement</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php require_once('_nav.phtml'); ?>
+    </header>    
+        
+        

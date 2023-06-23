@@ -1,0 +1,72 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="addAndUpdate">
+    
+    <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+        <h1>Bonjour, Modifier votre Poste !</h1>
+        <h3 class="">Modification Poste :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form method="POST" action="../../src/backOffice/posteNewAndUpdate.php?id=<?php echo htmlspecialchars($_GET['id']); ?>">
+
+    <?php else: ?>
+        <h1>Bonjour, Ajoutez votre nouveau Poste !</h1>
+        <h3 class="">Ajout d'un poste :</h3>
+        <?php require_once('_validsBack.phtml'); ?>
+        <?php require_once('_errorsBack.phtml'); ?>
+        <form action="../../src/backOffice/posteNewAndUpdate.php" method="POST">
+            
+    <?php endif; ?>
+    
+        <label for="categorie">Catégorie du Projet :</label>
+            <select name="categorie" class="categorie">
+                <option value="error">CATEGORIE :</option>
+                <?php foreach($categories as $cat): ?>
+                    <option value="<?= htmlspecialchars($cat['cat_id']) ?>"
+                        <?php if($addPoste['addCategory'] == $cat['cat_id']) :?>selected <?php endif; ?>>
+                        <?= htmlspecialchars($cat['cat_title']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select><br>
+
+        <label for="name">Nom du poste :</label>
+            <input type="text" name="name" value="<?= htmlspecialchars($addPoste['addName'])?>">
+
+        <label for="description">Description :</label>
+            <textarea id="description" name="description" rows="5" cols="33"><?= htmlspecialchars($addPoste['addDescription']) ?></textarea>
+        
+        <label for="conditions">Conditions :</label>
+            <textarea id="conditions" name="conditions" rows="5" cols="33"><?= htmlspecialchars($addPoste['addConditions']) ?></textarea>
+        
+        <label for="contrat">Contrat :</label>
+            <input type="text" name="contrat" value="<?= htmlspecialchars($addPoste['addContrat']) ?>">
+            
+        <label for="salary">Salaire :</label>
+            <input type="text" name="salary" value="<?= htmlspecialchars($addPoste['addSalary']) ?>">
+        
+        <?php if(array_key_exists('id', $_GET) && $_GET['id'] >= 1) : ?>
+            <input type="submit" value="Modifier">
+        <?php else: ?>
+            <input type="submit" value="Ajouter">
+        <?php endif; ?>
+        
+    </form>
+</main>
+<?php require_once('_footerBack.phtml'); ?>
+
+
+    
+            
+    
+
+       
+
+    
+
+    
+    
+    
+    
+    
+
+	

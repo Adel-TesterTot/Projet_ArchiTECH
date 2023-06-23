@@ -1,0 +1,17 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<?php require_once('_validsBack.phtml'); ?>
+<?php require_once('_errorsBack.phtml'); ?>
+
+<main class="adminMdp">
+        
+    <form action="../../src/backOffice/forgotMdp.php" method="POST">
+        <legend>Mot de passe oublié</legend>  
+            <label for="recup_mail">EMAIL</label>
+                <input type="email" name="recup_mail">
+            <input type="submit" name="submit" value="Récupérer">
+    </form>
+
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

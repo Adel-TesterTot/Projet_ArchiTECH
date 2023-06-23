@@ -1,0 +1,30 @@
+<?php require_once('_headerBack.phtml'); ?>
+
+<main class="adminContainer">
+    <?php require_once('_titleAvatar.phtml'); ?>
+    <h2>Gestion de curriculum vitæ :</h2>
+
+    <table class="cvTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Poste candidaté</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($rowCv as $cv): ?>
+                <tr>
+                    <td><?= htmlspecialchars($cv['cv_lastname']) ?></td>
+                    <td><?= htmlspecialchars($cv['cv_firstname']) ?></td>
+                    <td><?= htmlspecialchars($cv['post_name']) ?></td>
+                    <td class="center"><a href="../../src/backOffice/depotCvDelete.php?id=<?= htmlspecialchars($cv['cv_id']) ?>" ... onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce CV ?');" ><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</main>
+
+<?php require_once('_footerBack.phtml'); ?>

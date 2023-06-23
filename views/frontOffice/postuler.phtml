@@ -1,0 +1,54 @@
+<?php require_once('_header.phtml'); ?>
+
+<main class="containerPostuler">
+    <?php require_once('_valids.phtml'); ?>
+    <?php require_once('_errors.phtml'); ?>
+    
+    <?php foreach($jobs as $job): ?>
+        <h1>ON RECRUTE <?= htmlspecialchars($job['post_name']) ?></h1>
+        <img src="../../assets/images/img_categorie/<?= $job['cat_img'] ?>" class="recrut" alt="image de catégorie Architecture">
+        <h2>Prérequis indispensables :</h2>
+        <article>
+            <div class="trait1"></div>
+            <p><?= htmlspecialchars($job['post_conditions']) ?><p>
+            <p><?= htmlspecialchars($job['post_description']) ?><p>
+            <p>Poste en <?= htmlspecialchars($job['post_contrat']) ?>, rémunération selon profil.</p>  
+            <p class="bold">Envoyer CV ou télécharger le dans le formulaire au-dessous :</p>
+        </article>
+        <div class="trait2"></div>
+        <h4>Newjob@ArchiTEC.com</h4>
+        <div class="trait3"></div>
+    <?php endforeach; ?>
+    
+    <form enctype="multipart/form-data" action ="../../src/frontOffice/postuler.php" method="post">
+        <label for="poste">poste souhaité :</label>
+            <select name="cv_poste" class="poste">
+                <option value="error">POSTE :</option>
+                <?php foreach($jobs as $job): ?>
+                <option value="<?= htmlspecialchars($job['post_id']) ?>"
+                    <?php if($addCv['addPoste'] == $job['post_id']) :?>selected <?php endif; ?>>
+                    <?= htmlspecialchars($job['post_name']) ?>
+                </option>
+                <?php endforeach; ?>
+            </select><br>
+  
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="cv_lastname" placeholder="Nom" value="<?= htmlspecialchars($addCv['addNom'])?>">
+        
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="cv_firstname" placeholder="Prénom" value="<?= htmlspecialchars($addCv['addPrenom'])?>">
+        
+        <fieldset>
+            <label for="cv_doc">Fichier : </label>
+                <input type="file" name="cv_doc">
+                <small class="form-text text-muted">Sélectionnez un fichier : Formats ['pdf', 'odt', 'PDF'].</small>
+        </fieldset>
+        <div>
+        <button type="submit" id="send-btn"class ="submit">ENVOYER</button>
+        </div>
+    </form>
+    
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="../../assets/images/img_picto/arrowTop.jpg"></button>
+</main>
+
+<?php require_once('_footer.phtml'); ?>

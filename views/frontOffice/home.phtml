@@ -1,0 +1,97 @@
+<?php require_once('_header.phtml'); ?>
+
+<main class="presentation">
+ 
+    <h1><?= HOME ?></h1>
+    <article>
+        <h2>UNE NOUVELLE VISION DE </br> L'ARCHITECTURE ET DU DESIGN</h2>
+        <div class="trait1"></div>
+        <p>Notre métier : vous comprendre, traduire vos besoins et vos désirs, imaginer un concept qui vous ressemble et le décliner dans ses moindres détails. Que vous soyez particulier ou professionnel, qu’il s’agisse de logements, de bureaux, d’espaces industriels ou de commerces, nous envisageons chaque projet de la même façon : nous globalisons l’étude d’un concept et nous travaillons à le rendre cohérent de A à Z jusqu’à sa concrétisation. Cette approche intègre un grand souci du détail, qui se traduit notamment par une attention toute particulière portée aux matériaux et par la création d’une vraie identité architecturale et visuelle.
+            Bonne visite !
+        </p>
+    </article>
+
+    <!-- infinite slidershow en JQuery -->
+    <section class="slideshow">
+        <ul>
+            <li>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($accueil1['pro_id']) ?>" >
+                    <img src="../../assets/images/image_principale/<?= $accueil1['img_name'] ?>" alt="image projet aléatoire">
+                    <div class="number">1</div>
+                </a>
+            </li>
+            <li>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($accueil2['pro_id']) ?>" >
+                    <img src="../../assets/images/image_principale/<?= $accueil2['img_name'] ?>" alt="image projet aléatoire">
+                    <div class="number">2</div>
+                </a>
+            </li>
+            <li>
+                <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($accueil3['pro_id']) ?>" >
+                    <img src="../../assets/images/image_principale/<?= $accueil3['img_name'] ?>" alt="image projet aléatoire">
+                    <div class="number">3</div>
+                </a>
+            </li>
+        </ul>
+    </section>
+    
+    <div class="plus">
+        <button onclick="bottomFunction()" id="myBtnBottom1" title="Go to bottom">
+            <img src="../../assets/images/img_picto/arrowBottom.jpg" class='arrowBottom' alt="aller en bas de la page">    
+        </button>
+        <a href="../../src/frontOffice/projets.php"><img src="../../assets/images/img_picto/plus.jpg" alt="plus de projets">Projets</a>
+    </div>
+
+    <section class="containerHome">
+        <article class="galerie">
+            <h3>Projets</h3> 
+            <!-- une galerie des projets de chaque catégorie -->
+            <?php foreach($Projets as $Projet): ?>
+                <div class="thumbnail">
+                    <a href="../../src/frontOffice/infoProjet.php?id=<?= htmlspecialchars($Projet['pro_id']) ?>" >
+                        <div class="thumbnail__container">
+                            
+                            <div class="thumbnail__img" style="background-image: url(../../assets/images/image_principale/<?= $Projet['img_name'] ?>);"></div>
+                            <div class="thumbnail__content">
+                                <h4 class="thumbnail__caption"><?= substr(nl2br(htmlspecialchars($Projet['pro_description'])), 0, 30) ?>...</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        	<?php endforeach; ?> 
+        </article>
+            
+        <section class="astuce">
+            <div class="columnLeft">Aménagement sur-mesure by ArchiTEC</div>
+            <h2>NOTRE PHILOSOPHIE</h2>
+            <h3>Une Architecture du sens et de l'equilibre</h3>
+            <div class="trait1"></div>
+            <article>
+                <p>Notre vision est avant tout guidée par votre bien-être. Notre maîtrise des étapes et des techniques architecturales et de design vous garantit un travail dans le respect de votre personnalité, de l’identité de votre projet, du temps, du coût et du lieu.Nous revendiquons une architecture et un design simples, efficaces et sincères, sans effets de manche, sans artifice. Notre  recherche est basée sur l’équilibre : connaître les tendances sans céder aux modes éphémères, proposer une esthétique sans rien sacrifier à la fonctionnalité, créer de la surprise uniquement si cela crée du sens, détourner l’usage premier des matériaux sans les dénaturer, aller vers un minimal qui reste convivial, inventer pour mieux pérenniser, etc.</p>  
+                <p>C’est peut-être ça le style ArchiTEC : des réalisations qui vont à l’essentiel tout en manifestant une créativité sensible et ludique.</p>
+                </p>
+            </article>
+            <div class="plus1">
+                <a href="../../src/frontOffice/projets.php"><img src="../../assets/images/img_picto/plusBlanc.jpg" alt="plus de projets">Projets</a>  
+                <a href="../../src/frontOffice/bureau.php" class="aPropos">à propos</a>
+            </div>
+        </section>
+        
+        <aside>
+            <h3 id="goToBottom">Notre plus : les astuces !</h3>
+            <p>L’aménagement sur mesure par ABCD Architecture, c’est changer les perceptions de l’espace par de subtiles ruptures de rythmes et de perspectives, grâce à un matériau, une lumière, une peinture, une création graphique sur un mur… C’est aussi inventer des zones de rangement ou de repos inattendues, des surfaces de travail modulables ou élargies, une mise en lumière étonnante, des espaces optimisés, plus agréables, plus fonctionnels. C’est l’innovation qui se niche dans les détails d’un intérieur pur et lisible.
+            </p>
+        </aside>
+        
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="../../assets/images/img_picto/arrowTop.jpg">
+        </button>
+    </section>
+</main>
+
+<?php require_once('_footer.phtml'); ?>
+ 	
+ 
+    
+    
+    
+    

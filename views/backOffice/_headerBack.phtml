@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="back Office ArchiTEC">
+        
+        <!-- titre -->
+        <title><?= TITLE ?></title>
+        
+        <!--font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        
+        <!-- Favicon ArchiTEC -->
+    	<link rel="icon" type="image/png" href="../../assets/images/logos/favicon.png">
+        
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+    	<!-- font awesome --> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
+	    
+	    <!-- flatpickr -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    	
+        <!--feuilles de style -->
+        <link rel="stylesheet" href="../../assets/css/normalize.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/css/styleBack.css" type="text/css" />
+
+    </head>
+    
+<body>
+    <header>
+        <div class="header">
+            <a href="../../src/backOffice/index.php" class="logo2"><img src="../../assets/images/logos/logo.blanc.png" alt="logo Back Office"></a>
+            <?php if(isset($_SESSION['arc'])): ?>
+                <h3><a href="../../src/backOffice/archiDeconnect.php">Déconnexion</a></h3>
+                <h4><?= htmlspecialchars($_SESSION['arc']['lastName']. " " .$_SESSION['arc']['firstName']) ?></h4>
+                
+                <nav>
+                    <a href="../../src/backOffice/index.php">Home</a>
+                    <?php if(basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "admins.php"): ?>
+                        <a href="../../src/backOffice/admins.php">Admins</a>
+                    <?php endif; ?>
+
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "postes.php"): ?>
+                        <a href="../../src/backOffice/postes.php">postes</a>
+                    <?php endif; ?>
+
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "rdv.php"): ?>
+                        <a href="../../src/backOffice/rdv.php">Rendez-vous</a>
+                    <?php endif; ?>
+                    
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "depotCv.php"): ?>
+                        <a href="../../src/backOffice/depotCv.php">C V</a>
+                    <?php endif; ?>
+                    
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "categories.php"): ?>
+                        <a href="../../src/backOffice/categories.php">Catégories</a>
+                    <?php endif; ?>
+                    
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "actualities.php"): ?>
+                        <a href="../../src/backOffice/actualities.php">Actualités</a>
+                    <?php endif; ?>
+
+                    <?php if (basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != "photos.php"): ?>
+                        <a href="../../src/backOffice/photos.php">Photos Projet</a>
+                    <?php endif; ?>
+                </nav>
+                
+            <?php else: ?>
+                <h3><a href="../../src/backOffice/archiConnect.php">Console Admins</a></h3>
+            <?php endif; ?>
+        </div>
+    </header>    
+        
+        
